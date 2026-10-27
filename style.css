@@ -1,0 +1,266 @@
+/* ==========================================================
+   style.css - tampilan halaman login LoginTest
+   Mengikuti mockup: panel oranye di kiri, form di kanan.
+   ========================================================== */
+
+/* 1. VARIABEL WARNA
+   Dengan variabel, kalau mau ganti warna cukup ubah di sini saja. */
+   :root {
+    --warna-utama: #C2410C;
+    --warna-utama-gelap: #9A3412;
+    --teks: #1F2937;
+    --teks-redup: #4B5563;
+    --garis: #6B7280;
+    --error: #B91C1C;
+    --sukses: #166534;
+    --putih: #FFFFFF;
+  }
+  
+  /* 2. RESET DASAR
+     box-sizing: border-box membuat lebar elemen sudah termasuk padding
+     dan border, jadi ukuran lebih mudah dihitung. */
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--teks);
+    background: var(--putih);
+  }
+  
+  /* 3. LAYOUT UTAMA
+     display: flex membuat panel kiri dan kanan berdampingan.
+     min-height: 100vh = tinggi minimal setinggi layar. */
+  .login-page {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* 4. PANEL KIRI (oranye) */
+  .brand-panel {
+    flex: 0 0 40%;
+    background: var(--warna-utama);
+    color: var(--putih);
+    padding: 56px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .brand-name {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  .brand-panel h1 {
+    margin: 0 0 12px;
+    font-size: 36px;
+    line-height: 1.2;
+  }
+  
+  .brand-panel p {
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  .brand-note {
+    font-size: 13px;
+  }
+  
+  /* 5. PANEL KANAN (form) */
+  .form-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+  }
+  
+  .login-form {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .login-form h2 {
+    margin: 0;
+    font-size: 28px;
+  }
+  
+  /* 6. FIELD (label + input + pesan error) */
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .field label {
+    font-size: 14px;
+  }
+  
+  .field input {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--garis);
+    border-radius: 8px;
+    font-size: 15px;
+  }
+  
+  /* Fokus keyboard harus terlihat jelas (penting untuk aksesibilitas) */
+  .field input:focus,
+  .login-button:focus-visible,
+  .toggle-password:focus-visible,
+  a:focus-visible {
+    outline: 3px solid #FDBA74;
+    outline-offset: 2px;
+  }
+  
+  /* Kolom bermasalah: JavaScript nanti menambahkan class "invalid" */
+  .field input.invalid {
+    border: 2px solid var(--error);
+  }
+  
+  /* Pesan error di bawah kolom. Kalau kosong, tidak memakan tempat. */
+  .field-error {
+    font-size: 13px;
+    color: var(--error);
+  }
+  
+  .field-error:empty {
+    display: none;
+  }
+  
+  /* 7. PASSWORD + TOMBOL LIHAT
+     Wrapper dibuat position: relative supaya tombol bisa diletakkan
+     di atas kolom (di sisi kanan) dengan position: absolute. */
+  .password-wrapper {
+    position: relative;
+  }
+  
+  .password-wrapper input {
+    padding-right: 64px;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    top: 0;
+    right: 4px;
+    height: 44px;
+    padding: 0 10px;
+    border: 0;
+    background: transparent;
+    color: var(--warna-utama);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  /* 8. BARIS "INGAT SAYA" + "LUPA PASSWORD" */
+  .options-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  a {
+    color: var(--warna-utama);
+  }
+  
+  a:hover {
+    color: var(--warna-utama-gelap);
+  }
+  
+  /* 9. TOMBOL LOGIN */
+  .login-button {
+    height: 48px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--warna-utama);
+    color: var(--putih);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .login-button:hover {
+    background: var(--warna-utama-gelap);
+  }
+  
+  /* Tombol nonaktif (dipakai nanti saat akun terkunci sementara) */
+  .login-button:disabled {
+    background: #9CA3AF;
+    cursor: not-allowed;
+  }
+  
+  .register-text {
+    margin: 0;
+    text-align: center;
+    font-size: 14px;
+    color: var(--teks-redup);
+  }
+  
+  /* 10. PESAN UMUM DI ATAS FORM
+     Kalau kosong disembunyikan. Class "error" / "success" ditambahkan
+     oleh JavaScript. */
+  .form-message {
+    margin: 0;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  
+  .form-message:empty {
+    display: none;
+  }
+  
+  .form-message.error {
+    background: #FEE2E2;
+    color: var(--error);
+  }
+  
+  .form-message.success {
+    background: #DCFCE7;
+    color: var(--sukses);
+  }
+  
+  /* 11. TAMPILAN HP
+     Aturan di dalam @media hanya berlaku saat lebar layar 768px
+     atau kurang. Panel oranye berubah jadi header kecil di atas. */
+  @media (max-width: 768px) {
+    .login-page {
+      flex-direction: column;
+    }
+  
+    .brand-panel {
+      flex: none;
+      padding: 24px;
+      gap: 8px;
+    }
+  
+    .brand-panel h1 {
+      font-size: 24px;
+    }
+  
+    .brand-note {
+      display: none;
+    }
+  
+    .form-panel {
+      align-items: flex-start;
+      padding: 24px;
+    }
+  }

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | E-Activity</title>
+
+  <!-- style.css dipakai lagi supaya warna dan font sama dengan halaman login -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Gaya khusus dashboard ditulis di sini supaya style.css tetap rapi -->
+  <style>
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 32px;
+      background: var(--warna-utama);
+      color: var(--putih);
+    }
+
+    .topbar .brand-name {
+      font-size: 20px;
+    }
+
+    .logout-button {
+      height: 40px;
+      padding: 0 20px;
+      border: 2px solid var(--putih);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--putih);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .logout-button:hover {
+      background: var(--putih);
+      color: var(--warna-utama);
+    }
+
+    .logout-button:focus-visible {
+      outline: 3px solid #FDBA74;
+      outline-offset: 2px;
+    }
+
+    .dashboard-content {
+      max-width: 720px;
+      margin: 48px auto;
+      padding: 0 24px;
+    }
+
+    .dashboard-content h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+
+    .dashboard-content p {
+      margin: 0 0 24px;
+      color: var(--teks-redup);
+      line-height: 1.5;
+    }
+
+    .card {
+      padding: 24px;
+      border: 1px solid var(--garis);
+      border-radius: 12px;
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .card p {
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .topbar {
+        padding: 16px 24px;
+      }
+    }
+  </style>
+</head>
+
+<!-- hidden: halaman disembunyikan dulu. Baru ditampilkan oleh script
+     di bawah kalau pengguna terbukti sudah login. -->
+<body hidden>
+
+  <header class="topbar">
+    <p class="brand-name">E-Activity</p>
+    <button type="button" id="logout-button" class="logout-button">Logout</button>
+  </header>
+
+  <main class="dashboard-content">
+    <h1>Selamat datang di E-Activity</h1>
+    <p>Kamu berhasil masuk. Ini halaman dashboard sederhana untuk pengujian login.</p>
+
+    <section class="card">
+      <h2>Catatan aktivitas hari ini</h2>
+      <p>Belum ada catatan aktivitas.</p>
+    </section>
+  </main>
+
+  <script>
+    /* PROTEKSI HALAMAN (REQ-08)
+       script.js menyimpan tanda "sudahLogin" saat login berhasil.
+       Kalau tanda itu tidak ada, pengguna dikembalikan ke halaman login. */
+    const KEY_SESI = "sudahLogin";
+
+    if (sessionStorage.getItem(KEY_SESI) !== "true") {
+      // replace() supaya tombol Back tidak kembali ke dashboard
+      window.location.replace("index.html");
+    } else {
+      // Sudah login: tampilkan halaman
+      document.body.hidden = false;
+    }
+
+    /* TOMBOL LOGOUT
+       Hapus tanda login, lalu kembali ke halaman login. */
+    document.getElementById("logout-button").addEventListener("click", function () {
+      sessionStorage.removeItem(KEY_SESI);
+      window.location.replace("index.html");
+    });
+  </script>
+</body>
+</html>
