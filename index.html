@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <!-- Baris viewport ini wajib supaya tampilan responsif di HP -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Masuk | LoginTest</title>
+  <title>Masuk | E-Activity</title>
 
   <!-- File CSS (tampilan) akan kita buat setelah index.html selesai -->
   <link rel="stylesheet" href="style.css">
@@ -18,8 +18,28 @@
     <!-- PANEL KIRI: identitas aplikasi (di HP bisa dikecilkan lewat CSS) -->
     <section class="brand-panel">
       <p class="brand-name">E-Activity</p>
-      <h1>Selamat datang kembali</h1>
-      <p>Masuk untuk melanjutkan catatan aktivitas kamu.</p>
+
+      <div class="brand-hero">
+        <h1>Selamat datang kembali</h1>
+        <p>Masuk untuk melanjutkan catatan aktivitas kamu.</p>
+
+        <!-- Kartu pratinjau: hiasan saja, disembunyikan dari screen reader -->
+        <ul class="preview-list" aria-hidden="true">
+          <li class="preview-card done">
+            <span class="check"></span>
+            <span>Olahraga pagi <small>06.30</small></span>
+          </li>
+          <li class="preview-card">
+            <span class="check"></span>
+            <span>Rapat tim <small>10.00</small></span>
+          </li>
+          <li class="preview-card">
+            <span class="check"></span>
+            <span>Baca buku <small>20.00</small></span>
+          </li>
+        </ul>
+      </div>
+
       <p class="brand-note">Melakukan aktivitas seharian kamu dengan E-Activity</p>
     </section>
 
