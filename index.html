@@ -1,120 +1,177 @@
-<!DOCTYPE html>
-<!-- lang="id" memberi tahu browser bahwa halaman ini berbahasa Indonesia -->
-<html lang="id">
+<!doctype html>
+<html lang="id" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <!-- Baris viewport ini wajib supaya tampilan responsif di HP -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Masuk | E-Activity</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muhammad Ridwan Lubis - Portofolio QA</title>
+<meta name="description" content="Portofolio Aspiring QA Engineer: demo aplikasi dan laporan hasil testing.">
 
-  <!-- File CSS (tampilan) akan kita buat setelah index.html selesai -->
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- Pembungkus seluruh halaman. Di desktop: panel kiri + form kanan -->
-  <main class="login-page">
+<!-- ===== MENU ATAS ===== -->
+<nav><div class="wrap">
+  <strong>M. Ridwan Lubis</strong>
+  <div class="links">
+    <a href="#tentang">Tentang</a>
+    <a href="#project">Project</a>
+    <a href="#perjalanan">Perjalanan</a>
+    <a href="#kontak">Kontak</a>
+    <button id="theme" type="button" aria-label="Ganti ke mode terang" title="Ganti ke mode terang">🌙</button>
+  </div>
+</div></nav>
 
-    <!-- PANEL KIRI: identitas aplikasi (di HP bisa dikecilkan lewat CSS) -->
-    <section class="brand-panel">
-      <p class="brand-name">E-Activity</p>
+<main class="wrap">
 
-      <div class="brand-hero">
-        <h1>Selamat datang kembali</h1>
-        <p>Masuk untuk melanjutkan catatan aktivitas kamu.</p>
+<!-- ===== BAGIAN ATAS: FOTO, NAMA, TOMBOL ===== -->
+<section class="hero">
+  <!-- Foto: simpan dengan nama foto.jpg di folder yang sama. Kalau belum ada, tampil inisial. -->
+  <div class="photo">
+    <div class="inisial">MR</div>
+    <img src="pasfoto.jpeg" alt="Foto Muhammad Ridwan Lubis" onerror="this.remove()">
+  </div>
+  <div>
+    <p class="eyebrow">ASPIRING QA ENGINEER</p>
+    <h1>Muhammad <span>Ridwan Lubis</span></h1>
+    <p class="lead">Technical Support yang beralih ke software testing. Setiap project di bawah ini punya demo yang bisa dicoba dan laporan hasil test yang bisa dibaca.</p>
+    <div class="btns">
+      <a class="btn" href="cv/CV-Muhammad-Ridwan-Lubis.pdf" target="_blank" rel="noopener">Download CV</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/mridwanlbs23" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/mridwanlbs233-collab" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
 
-        <!-- Kartu pratinjau: hiasan saja, disembunyikan dari screen reader -->
-        <ul class="preview-list" aria-hidden="true">
-          <li class="preview-card done">
-            <span class="check"></span>
-            <span>Olahraga pagi <small>06.30</small></span>
-          </li>
-          <li class="preview-card">
-            <span class="check"></span>
-            <span>Rapat tim <small>10.00</small></span>
-          </li>
-          <li class="preview-card">
-            <span class="check"></span>
-            <span>Baca buku <small>20.00</small></span>
-          </li>
-        </ul>
+<!-- ===== TENTANG SAYA ===== -->
+<section id="tentang" class="reveal">
+  <h2>Tentang Saya</h2>
+  <p class="about">Saya Technical Support yang sedang beralih ke software testing. Latar belakang Ilmu Komputer membuat saya terbiasa membaca alur sistem, dan pekerjaan sehari-hari melatih saya memahami masalah dari sisi pengguna. Saya belajar dengan membangun aplikasi kecil, lalu mengujinya lewat test case, bug report, dan teknik seperti Boundary Value Analysis dan Equivalence Partitioning.</p>
+</section>
+
+<!-- ===== PROJECT ===== -->
+<section id="project" class="reveal">
+  <h2>Project</h2>
+
+  <!-- Tombol filter. data-filter harus sama dengan salah satu kata di data-k pada kartu. -->
+  <div class="chips" role="group" aria-label="Filter project">
+    <button class="chip on" type="button" data-filter="all">Semua</button>
+    <button class="chip" type="button" data-filter="functional">Functional</button>
+    <button class="chip" type="button" data-filter="negative">Negative</button>
+    <button class="chip" type="button" data-filter="bva">Boundary Value</button>
+    <button class="chip" type="button" data-filter="ep">Equivalence Partitioning</button>
+    <button class="chip" type="button" data-filter="e2e">End-to-End</button>
+  </div>
+
+  <div class="grid">
+
+    <!-- PROJECT 1: Login UI
+         Link tombol "Lihat Demo" ada di href pertama (ganti kalau perlu).
+         data-k = kategori untuk filter. -->
+    <article class="card" data-k="functional negative">
+      <h3>Secure Login UI</h3>
+      <p>Halaman login dan autentikasi (HTML/CSS/JS).</p>
+      <p class="tag">Functional, Negative Testing</p>
+      <div class="btns">
+        <a class="btn" href="https://mridwanlbs233-collab.github.io/login-ui/" target="_blank" rel="noopener">Lihat Demo</a>
+        <a class="btn ghost" href="reports/login-ui.pdf" target="_blank" rel="noopener">Laporan Test (PDF)</a>
       </div>
+    </article>
 
-      <p class="brand-note">Melakukan aktivitas seharian kamu dengan E-Activity</p>
-    </section>
+    <!-- PROJECT 2: To-Do List -->
+    <article class="card" data-k="functional">
+      <h3>To-Do List</h3>
+      <p>Aplikasi CRUD dengan penyimpanan localStorage.</p>
+      <p class="tag">Functional, CRUD Testing</p>
+      <div class="btns">
+        <a class="btn" href="https://mridwanlbs233-collab.github.io/todo-list/" target="_blank" rel="noopener">Lihat Demo</a>
+        <a class="btn ghost" href="reports/todo-list.pdf" target="_blank" rel="noopener">Laporan Test (PDF)</a>
+      </div>
+    </article>
 
-    <!-- PANEL KANAN: form login -->
-    <section class="form-panel">
+    <!-- PROJECT 3: Katalog Buku -->
+    <article class="card" data-k="functional">
+      <h3>Katalog Buku (Library)</h3>
+      <p>Cari, filter, dan pinjam buku.</p>
+      <p class="tag">Functional, Search dan Filter</p>
+      <div class="btns">
+        <a class="btn" href="https://mridwanlbs233-collab.github.io/library/" target="_blank" rel="noopener">Lihat Demo</a>
+        <a class="btn ghost" href="reports/library.pdf" target="_blank" rel="noopener">Laporan Test (PDF)</a>
+      </div>
+    </article>
 
-      <!-- novalidate: matikan validasi bawaan browser, supaya pesan error
-           kita sendiri (dari script.js) yang tampil dan bisa diuji -->
-      <form id="login-form" class="login-form" novalidate>
-        <h2>Masuk</h2>
+    <!-- PROJECT 4: Mini Bank Web -->
+    <article class="card" data-k="bva ep">
+      <h3>Mini Bank Web</h3>
+      <p>Alur transfer saldo dengan validasi nominal, saldo, limit harian, dan PIN.</p>
+      <p class="tag">Boundary Value, Equivalence Partitioning</p>
+      <div class="btns">
+        <a class="btn" href="https://mridwanlbs233-collab.github.io/registrasi/" target="_blank" rel="noopener">Lihat Demo</a>
+        <a class="btn ghost" href="reports/registrasi.pdf" target="_blank" rel="noopener">Laporan Test (PDF)</a>
+      </div>
+    </article>
 
-        <!-- Pesan umum (misalnya: "Email atau password salah" atau
-             "Akun terkunci sementara"). Awalnya kosong. -->
-        <p id="form-message" class="form-message" role="alert" aria-live="polite"></p>
+    <!-- PROJECT 5: Online Shop -->
+    <article class="card" data-k="functional e2e">
+      <h3>Tokoku.id</h3>
+      <p>Alur belanja lengkap dari daftar produk, keranjang, hingga transaksi.</p>
+      <p class="tag">Functional, End-to-End Flow</p>
+      <div class="btns">
+        <a class="btn" href="https://mridwanlbs233-collab.github.io/online-shop/" target="_blank" rel="noopener">Lihat Demo</a>
+        <a class="btn ghost" href="reports/online-shop.pdf" target="_blank" rel="noopener">Laporan Test (PDF)</a>
+      </div>
+    </article>
 
-        <!-- FIELD EMAIL -->
-        <div class="field">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="nama@email.com"
-            autocomplete="username"
-            aria-describedby="email-error">
-          <!-- Tempat pesan error khusus email (diisi oleh JavaScript) -->
-          <span id="email-error" class="field-error"></span>
-        </div>
+    <!-- PROJECT 5: TiketKu Cinema -->
+    <article class="card" data-k="functional e2e">
+      <h3>TiketKu Cinema</h3>
+      <p>Pemesanan tiket dengan validasi tanggal dan jam tayang, kursi yang sudah terisi, serta pembatalan.</p>
+      <p class="tag">State Transition, Boundary Value, Negative Testing</p>
+      <div class="btns">
+        <a class="btn" href="https://mridwanlbs233-collab.github.io/online-shop/" target="_blank" rel="noopener">Lihat Demo</a>
+        <a class="btn ghost" href="reports/online-shop.pdf" target="_blank" rel="noopener">Laporan Test (PDF)</a>
+      </div>
+    </article>
 
-        <!-- FIELD PASSWORD -->
-        <div class="field">
-          <label for="password">Password</label>
-          <div class="password-wrapper">
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Masukkan password"
-              autocomplete="current-password"
-              aria-describedby="password-error">
-            <!-- type="button" supaya tombol ini tidak ikut mengirim form -->
-            <button
-              type="button"
-              id="toggle-password"
-              class="toggle-password"
-              aria-label="Tampilkan password">
-              Lihat
-            </button>
-          </div>
-          <span id="password-error" class="field-error"></span>
-        </div>
+    <!-- Untuk menambah project: salin satu blok <article> sampai </article>, tempel di sini,
+         lalu ubah judul, deskripsi, link, dan data-k. -->
 
-        <!-- BARIS: Ingat saya + Lupa password -->
-        <div class="options-row">
-          <label class="remember">
-            <input type="checkbox" id="remember" name="remember">
-            Ingat saya
-          </label>
-          <a href="#" id="forgot-link">Lupa password?</a>
-        </div>
+  </div>
+</section>
 
-        <!-- TOMBOL LOGIN: type="submit" supaya bisa ditekan dengan Enter -->
-        <button type="submit" id="login-button" class="login-button">Login</button>
+<!-- ===== PERJALANAN (TIMELINE) ===== -->
+<section id="perjalanan" class="reveal">
+  <h2>Perjalanan</h2>
+  <div class="timeline">
+    <div class="item">
+      <time>SAAT INI</time>
+      <h3>Beralih ke software testing</h3>
+      <p>Membangun portofolio QA: test case, bug report, dan laporan hasil test.</p>
+    </div>
+    <div class="item">
+      <time>AGU 2025 - SEKARANG</time>
+      <h3>Technical Support</h3>
+      <p>PT Envision, Jakarta Selatan. Dukungan teknis untuk pengguna.</p>
+    </div>
+    <div class="item">
+      <time>2020 - 2024</time>
+      <h3>S1 Ilmu Komputer</h3>
+      <p>Universitas Sumatera Utara, IPK 3,61. Skripsi: karakter musuh dengan AI pada game top-down shooter “From The Downtown”.</p>
+    </div>
+  </div>
+</section>
 
-        <!-- LINK KE REGISTRASI (project kedua nanti) -->
-        <p class="register-text">
-          Belum punya akun? <a href="#" id="register-link">Daftar</a>
-        </p>
-      </form>
+</main>
 
-    </section>
-  </main>
+<!-- ===== KONTAK ===== -->
+<footer id="kontak"><div class="wrap">
+  <h2 style="margin:0;font-size:24px">Kontak</h2>
+  <p>Email: <a href="mailto:mridwanlbs233@email.com">mridwanlbs233@email.com</a> ·
+     <a href="https://www.linkedin.com/in/mridwanlbs23">LinkedIn</a> ·
+     <a href="https://github.com/mridwanlbs233-collab">GitHub</a></p>
+</div></footer>
 
-  <!-- File JavaScript (logika) dimuat paling bawah, setelah semua elemen
-       di atas ada. Akan kita buat setelah style.css -->
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
