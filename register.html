@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar | E-Activity</title>
+
+  <!-- Memakai style.css yang sama dengan halaman login,
+       jadi tampilannya otomatis serasi -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="login-page">
+
+    <!-- PANEL KIRI (sama seperti halaman login, teksnya diganti) -->
+    <section class="brand-panel">
+      <p class="brand-name">E-Activity</p>
+
+      <div class="brand-hero">
+        <h1>Buat akun baru</h1>
+        <p>Daftar untuk mulai mencatat aktivitas harian kamu.</p>
+
+        <ul class="preview-list" aria-hidden="true">
+          <li class="preview-card done">
+            <span class="check"></span>
+            <span>Olahraga pagi <small>06.30</small></span>
+          </li>
+          <li class="preview-card">
+            <span class="check"></span>
+            <span>Rapat tim <small>10.00</small></span>
+          </li>
+          <li class="preview-card">
+            <span class="check"></span>
+            <span>Baca buku <small>20.00</small></span>
+          </li>
+        </ul>
+      </div>
+
+      <p class="brand-note">Melakukan aktivitas seharian kamu dengan E-Activity</p>
+    </section>
+
+    <!-- PANEL KANAN: form pendaftaran -->
+    <section class="form-panel">
+      <form id="register-form" class="login-form" novalidate>
+        <h2>Daftar</h2>
+
+        <!-- Pesan umum (berhasil atau gagal) -->
+        <p id="form-message" class="form-message" role="alert" aria-live="polite"></p>
+
+        <!-- NAMA LENGKAP -->
+        <div class="field">
+          <label for="nama">Nama lengkap</label>
+          <input type="text" id="nama" name="nama" placeholder="Nama kamu"
+                 autocomplete="name" aria-describedby="nama-error">
+          <span id="nama-error" class="field-error"></span>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="nama@email.com"
+                 autocomplete="email" aria-describedby="email-error">
+          <span id="email-error" class="field-error"></span>
+        </div>
+
+        <!-- NOMOR HP -->
+        <div class="field">
+          <label for="telepon">Nomor HP</label>
+          <input type="tel" id="telepon" name="telepon" placeholder="08xxxxxxxxxx"
+                 inputmode="numeric" autocomplete="tel" aria-describedby="telepon-error">
+          <span id="telepon-error" class="field-error"></span>
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="password" name="password"
+                   placeholder="Minimal 8 karakter, huruf dan angka"
+                   autocomplete="new-password" aria-describedby="password-error">
+            <!-- data-target = id kolom yang dikendalikan tombol ini -->
+            <button type="button" class="toggle-password" data-target="password"
+                    aria-label="Tampilkan password">Lihat</button>
+          </div>
+          <span id="password-error" class="field-error"></span>
+        </div>
+
+        <!-- KONFIRMASI PASSWORD -->
+        <div class="field">
+          <label for="konfirmasi">Konfirmasi password</label>
+          <div class="password-wrapper">
+            <input type="password" id="konfirmasi" name="konfirmasi"
+                   placeholder="Ulangi password" autocomplete="new-password"
+                   aria-describedby="konfirmasi-error">
+            <button type="button" class="toggle-password" data-target="konfirmasi"
+                    aria-label="Tampilkan konfirmasi password">Lihat</button>
+          </div>
+          <span id="konfirmasi-error" class="field-error"></span>
+        </div>
+
+        <button type="submit" id="register-button" class="login-button">Daftar</button>
+
+        <p class="register-text">
+          Sudah punya akun? <a href="index.html" id="login-link">Masuk</a>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <script src="register.js"></script>
+</body>
+</html>
