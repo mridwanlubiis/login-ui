@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lupa Password | E-Activity</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="login-page">
+
+    <!-- PANEL KIRI -->
+    <section class="brand-panel">
+      <p class="brand-name">E-Activity</p>
+
+      <div class="brand-hero">
+        <h1>Lupa password?</h1>
+        <p>Tenang, verifikasi akunmu lalu buat password yang baru.</p>
+
+        <ul class="preview-list" aria-hidden="true">
+          <li class="preview-card done">
+            <span class="check"></span>
+            <span>Verifikasi akun <small>Langkah 1</small></span>
+          </li>
+          <li class="preview-card">
+            <span class="check"></span>
+            <span>Buat password baru <small>Langkah 2</small></span>
+          </li>
+          <li class="preview-card">
+            <span class="check"></span>
+            <span>Masuk kembali <small>Selesai</small></span>
+          </li>
+        </ul>
+      </div>
+
+      <p class="brand-note">Melakukan aktivitas seharian kamu dengan E-Activity</p>
+    </section>
+
+    <!-- PANEL KANAN -->
+    <section class="form-panel">
+
+      <!-- LANGKAH 1: VERIFIKASI AKUN (tampil lebih dulu) -->
+      <form id="verify-form" class="login-form" novalidate>
+        <h2>Verifikasi akun</h2>
+        <p id="verify-message" class="form-message" role="alert" aria-live="polite"></p>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="nama@email.com"
+                 autocomplete="email" aria-describedby="email-error">
+          <span id="email-error" class="field-error"></span>
+        </div>
+
+        <div class="field">
+          <label for="telepon">Nomor HP saat mendaftar</label>
+          <input type="tel" id="telepon" name="telepon" placeholder="08xxxxxxxxxx"
+                 inputmode="numeric" autocomplete="tel" aria-describedby="telepon-error">
+          <span id="telepon-error" class="field-error"></span>
+        </div>
+
+        <button type="submit" id="verify-button" class="login-button">Verifikasi</button>
+
+        <p class="register-text">
+          Ingat password kamu? <a href="index.html" id="login-link">Masuk</a>
+        </p>
+      </form>
+
+      <!-- LANGKAH 2: PASSWORD BARU (disembunyikan sampai verifikasi berhasil).
+           display: none dipasang langsung di sini; script.js forgot.js
+           menghapusnya saat verifikasi berhasil. -->
+      <form id="reset-form" class="login-form" style="display: none" novalidate>
+        <h2>Password baru</h2>
+        <p id="reset-message" class="form-message" role="alert" aria-live="polite"></p>
+
+        <div class="field">
+          <label for="password">Password baru</label>
+          <div class="password-wrapper">
+            <input type="password" id="password" name="password"
+                   placeholder="Minimal 8 karakter, huruf dan angka"
+                   autocomplete="new-password" aria-describedby="password-error">
+            <button type="button" class="toggle-password" data-target="password"
+                    aria-label="Tampilkan password">Lihat</button>
+          </div>
+          <span id="password-error" class="field-error"></span>
+        </div>
+
+        <div class="field">
+          <label for="konfirmasi">Konfirmasi password baru</label>
+          <div class="password-wrapper">
+            <input type="password" id="konfirmasi" name="konfirmasi"
+                   placeholder="Ulangi password baru" autocomplete="new-password"
+                   aria-describedby="konfirmasi-error">
+            <button type="button" class="toggle-password" data-target="konfirmasi"
+                    aria-label="Tampilkan konfirmasi password">Lihat</button>
+          </div>
+          <span id="konfirmasi-error" class="field-error"></span>
+        </div>
+
+        <button type="submit" id="reset-button" class="login-button">Simpan password baru</button>
+      </form>
+
+    </section>
+  </main>
+
+  <script src="forgot.js"></script>
+</body>
+</html>
